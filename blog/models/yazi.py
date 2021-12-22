@@ -2,7 +2,7 @@ from enum import unique
 from django.db import models
 from autoslug import AutoSlugField
 from blog.models import KategoriModel
-from django.contrib.auth.models import User
+from account.models import CustomUserModel
 from ckeditor.fields import RichTextField
 
 class YazilarModel(models.Model):
@@ -15,7 +15,7 @@ class YazilarModel(models.Model):
     slug= AutoSlugField(populate_from='baslik', unique=True)
     kategoriler= models.ManyToManyField(KategoriModel, related_name='yazi')
     ## related_name='yazi' ile ters ilişki kurup kategorideki tüm yazıları görebiliyoruz.
-    yazar= models.ForeignKey(User, on_delete=models.CASCADE, related_name='yazilar')
+    yazar= models.ForeignKey(CustomUserModel, on_delete=models.CASCADE, related_name='yazilar')
     ## on_delete=models.CASCADE burada yazar silinirse yazarın tüm yazılarını siliyoruz.
 
     class Meta:
