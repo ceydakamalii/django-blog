@@ -3,12 +3,19 @@
         <div class="card-header">
           Menü
         </div>
+        {% if request.user.is_authenticated %}
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Profil Düzenle</li>
           <li class="list-group-item">Şifre Değiştir</li>
           <li class="list-group-item">Yazı Ekle</li>
-          <li class="list-group-item">Yazılarım</li>
+          <li class="list-group-item"><a href="{% url 'yazilarim' %}">Yazılarım</a></li>
           <li class="list-group-item">Çıkış Yap</li>
         </ul>
+        {% else %}
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Giriş Yap</li>
+          <li class="list-group-item">Üye Ol</li>
+        </ul>
+        {% endif %}
       </div>
 </div>
