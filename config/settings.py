@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     # third party
     'ckeditor',
     'django_extensions',
-    'crispy_forms'
+    'crispy_forms',
+    'ipdb'
 ]
 
 MIDDLEWARE = [

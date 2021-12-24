@@ -18,7 +18,12 @@
             <th scope="row">{{yazi.id}}</th>
             <td>{{yazi.baslik}}</td>
             <td>{{yazi.duzenleme_tarihi}}</td>
-            <td>Aksiyonlar gelecek</td>
+            <td>
+              <p>
+                <a class="btn btn-primary" href="{% url 'yazi-guncelle' slug=yazi.slug %}">Düzenle</a>
+                <a class="btn btn-danger" href="{% url 'yazi-sil' slug=yazi.slug %}">Sil</a>
+              </p>
+            </td>
           </tr>
         {% empty %}
           <p>Hiç yazı yok</p>

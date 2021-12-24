@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 def yazilarim(request):
     yazilar = request.user.yazilar.order_by('-id')
     sayfa= request.GET.get('sayfa')
-    paginator = Paginator(yazilar, 2) # bir sayfada 2 tane yazı olucak
+    paginator = Paginator(yazilar, 5) # bir sayfada 5 tane yazı olucak
     context = {
         'yazilar': paginator.get_page(sayfa)
     }
