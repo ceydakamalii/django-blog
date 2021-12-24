@@ -30,7 +30,9 @@ INSTALLED_APPS = [
     'blog',
     'account',
     # third party
-    'ckeditor'
+    'ckeditor',
+    'django_extensions',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -108,10 +110,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
 STATIC_URL = '/static/'
 #staticfiles_dir static dosyaların klasörlerini listeliyor.
-STATICFILES_DIR = [
+STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
@@ -124,3 +125,5 @@ AUTH_USER_MODEL = 'account.CustomUserModel'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
