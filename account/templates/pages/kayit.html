@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Uye Ol {% endblock%}
+
+{%block content %}
+{% include 'components/messages/success-message.html' %}
+<form action="{% url 'kayit' %}" method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" class="btn btn-danger mt-3 mb-3" value="Üye Ol">
+</form>
+ 
+{% endblock %}

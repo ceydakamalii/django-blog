@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Sifre Degistir {% endblock%}
+
+{%block content %}
+{% include 'components/messages/success-message.html' %}
+<form action="{% url 'sifre-degistir' %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" class="btn btn-danger mt-3 mb-3" value="Şifre Değiştir">
+</form>
+ 
+{% endblock %}

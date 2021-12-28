@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Profil {% endblock%}
+
+{%block content %}
+<div class="card mb-3" style="max-width: 750px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        
+        {% if profile.avatar%}
+            <img src="{{profile.avatar.url}}" class="img-fluid rounded-start" alt="...">
+        {% else %}
+            <img src="{% static 'img/no-avatar.jpg' %}" class="img-fluid rounded-start" alt="...">
+        {% endif %}
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"> {% if profile.get_full_name == '' %}Anonim{% else %}{{profile.get_full_name}}{% endif %}</h5>
+          <p class="card-text my-4">Username : {{profile.username}} </p>
+          <p class="card-text">E-mail : {{profile.email}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+{% endblock %}

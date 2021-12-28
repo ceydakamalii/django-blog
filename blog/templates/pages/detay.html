@@ -36,6 +36,7 @@
   <h5>Yorumlar</h5>
   {% if request.user.is_authenticated %}
   <form method="POST">
+    {% csrf_token %}
     {{yorum_ekle_form|crispy}}
     <input type="submit" class="btn btn-danger mt-3 mb-3" value="Yorum Yap" >
   </form>
@@ -43,6 +44,9 @@
   {% else %}
   <p>Yorum yapmak için lütfen üye girişi yapınız. </p>
   {% endif %}
+
+  {% include 'components/messages/warning-message.html' %}
+  
   {% for yorum in yorumlar %}
   <div class="card">
     <div class="card-body" style="display:flex;flex-direction: row;">

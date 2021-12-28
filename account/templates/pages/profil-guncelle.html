@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Profil Guncelleme {% endblock%}
+
+{%block content %}
+{% include 'components/messages/success-message.html' %}
+<form action="{% url 'profil-guncelle' %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" class="btn btn-danger mt-3 mb-3" value="Profil Güncelle">
+</form>
+ 
+{% endblock %}
